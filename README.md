@@ -49,6 +49,7 @@ assets/fonts/*.woff2        Self-hosted webfonts
 assets/js/site.js           Nav, scroll reveal, form validation
 images/                     Photography + logo
 tools/build.py              Page generator
+tools/make-logo.py          Rebuilds the web logo from the master artwork
 tools/fetch-fonts.py        Re-downloads the webfonts
 ```
 
@@ -87,6 +88,19 @@ copy. Defined as CSS custom properties at the top of `assets/css/styles.css`.
 numerals; Barlow for body, UI and the deliberately lowercase counter-headings.
 Both self-hosted, latin subset, ~136 KB total.
 
+**Logo** — `images/PowderTec-Logo.png` is the client's master artwork and is kept
+untouched. The header and footer load `images/powdertec-logo.png`, a trimmed
+560&nbsp;px copy of it (54&nbsp;KB, transparent, sized for a 3&times; display).
+Regenerate that copy after any change to the master, then rebuild so the
+`width`/`height` attributes stay correct:
+
+```bash
+python3 tools/make-logo.py && python3 tools/build.py
+```
+
+The mark scales off `--hdr-h` in the header and a `clamp()` in the footer, so it
+resizes with the chrome rather than needing its own breakpoints.
+
 **Recurring motifs** — diagonal hazard-tape rules, notched "cut plate" card
 corners, outlined step numerals, and the service-radius diagram (plotted from
 real coordinates with Cullman at centre, rings at 25/50/75 miles).
@@ -121,12 +135,8 @@ states are already wired.
 1. **Business hours** — the Contact page currently says "Monday – Friday, please
    call ahead". Confirm the real hours and replace that line (marked with a
    `TODO` comment in `tools/build.py`).
-2. **Logo** — `images/powdertec-logo.svg` is a reconstruction of the PowderTec
-   wordmark, and the header/footer render it as live text so it stays crisp at
-   any size. If you have the original artwork, drop it in and swap the markup in
-   the `brand()` function.
-3. **Map** — the Contact page embeds an OpenStreetMap view of the Cullman area
+2. **Map** — the Contact page embeds an OpenStreetMap view of the Cullman area
    with no pin; the "Get Directions" button resolves the exact street address.
    Swap in a pinned embed once the precise coordinates are confirmed.
-4. **Photography** — four images are in use. More shots of the oven, the booth
+3. **Photography** — four images are in use. More shots of the oven, the booth
    and finished marine/automotive work would strengthen the Services page.
