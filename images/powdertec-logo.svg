@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 110" width="420" height="110" role="img" aria-label="PowderTec Powder Coating">
+  <title>PowderTec Powder Coating, Inc.</title>
+  <rect width="420" height="110" fill="#0A0A0A"/>
+  <g transform="translate(24 22) skewX(-9)">
+    <path fill="#F5C500" d="M31 0 L3 42 L21 42 L12 70 L47 30 L27 30 Z"/>
+    <text x="60" y="55" font-family="'Big Shoulders Display','Arial Narrow',Impact,sans-serif"
+          font-size="56" font-weight="800" letter-spacing="0.5" fill="#FFFFFF">POWDER<tspan fill="#F5C500">TEC</tspan></text>
+    <text x="62" y="76" font-family="'Barlow',Helvetica,Arial,sans-serif"
+          font-size="12.5" font-weight="600" letter-spacing="4.6" fill="#8E8E8E">POWDER COATING, INC.</text>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+/* Self-hosted webfonts — Barlow and Big Shoulders Display.
+   Google Fonts originals, SIL Open Font License 1.1. Latin subset.
+   Self-hosted so the site has no third-party font dependency and no
+   render-blocking round trip to fonts.googleapis.com.
+   Refresh with: python3 tools/fetch-fonts.py */
+
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/barlow-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/barlow-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/barlow-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/barlow-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Big Shoulders Display';
+  font-style: normal;
+  font-weight: 600 900;
+  font-display: swap;
+  src: url('../fonts/big-shoulders-display-var.woff2') format('woff2-variations'),
+       url('../fonts/big-shoulders-display-var.woff2') format('woff2');
+}
