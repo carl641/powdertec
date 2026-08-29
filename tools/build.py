@@ -271,6 +271,27 @@ def band(heading, btn_label, btn_href, rel):
        "tel": TEL, "phone": PHONE, "arrow": ARROW}
 
 
+# --------------------------------------------------------------------------
+# powder-gun cursor — the spray gun that replaces the pointer on desktop.
+# Inert markup: assets/js/site.js only switches it on for fine-pointer
+# devices, so touch users and no-JS visitors keep the native cursor.
+# --------------------------------------------------------------------------
+CURSOR = """<div class="pg-coat" id="pg-coat" aria-hidden="true"></div>
+<div class="pg-spray" id="pg-spray" aria-hidden="true"></div>
+<svg class="pg-gun" id="pg-gun" viewBox="0 0 190 120" aria-hidden="true" focusable="false">
+<g class="pg-gun__rig">
+<rect class="pg-y" x="5" y="44" width="62" height="13" rx="4"/>
+<rect class="pg-k" x="0" y="46" width="13" height="9" rx="2"/>
+<path class="pg-y" d="M65 38 L151 38 Q168 38 168 48 L168 54 Q168 62 151 62 L73 62 Q60 62 60 54 L60 46 Q60 38 65 38 Z"/>
+<rect class="pg-k" x="148" y="42" width="20" height="16" rx="4"/>
+<path class="pg-y" d="M101 61 L132 61 L139 108 L111 108 Z"/>
+<path class="pg-k" d="M108 70 L127 70 L133 101 L115 101 Z"/>
+<path class="pg-line" d="M82 60 Q90 76 103 64"/>
+</g>
+</svg>
+"""
+
+
 def footer(rel):
     links = "".join('<li><a href="%s%s">%s</a></li>' % (rel, href, label) for label, href, _ in NAV)
     services = "".join('<li><a href="%sservices/#%s">%s</a></li>' % (rel, slug, label) for label, slug in [
@@ -328,12 +349,13 @@ Jefferson County &#183; The Shoals &#183; Guntersville Lakes &#8212; North Alaba
 <a class="dock__quote" href="%(rel)scontact/">Get a Quote</a>
 </div>
 </div>
-<script src="%(rel)sassets/js/site.js" defer></script>
+%(cursor)s<script src="%(rel)sassets/js/site.js" defer></script>
 </body>
 </html>
 """ % {"brand": brand(rel), "street": STREET, "city": CITY, "state": STATE, "zip": ZIP,
        "tel": TEL, "phone": PHONE, "email": EMAIL, "links": links, "services": services,
-       "rel": rel, "brandname": BRAND, "arrow": ARROW, "pi": PHONE_ICON}
+       "rel": rel, "brandname": BRAND, "arrow": ARROW, "pi": PHONE_ICON,
+       "cursor": CURSOR}
 
 
 def crumb(rel, label):
@@ -882,7 +904,7 @@ def build_contact():
 
 <p class="prose" style="color:var(--fog)"><strong>For direct service during business hours, please call us.</strong> A two-minute conversation about size, substrate and finish usually gets you a firmer number than a form ever will.</p>
 
-<div class="mapframe" style="margin-top:30px">
+<div class="mapframe" data-no-gun style="margin-top:30px">
 <iframe title="Map showing the PowderTec facility area in Cullman, Alabama" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
 src="https://www.openstreetmap.org/export/embed.html?bbox=-86.9400%2C34.0900%2C-86.7500%2C34.2300&amp;layer=mapnik"></iframe>
 </div>
@@ -890,59 +912,19 @@ src="https://www.openstreetmap.org/export/embed.html?bbox=-86.9400%2C34.0900%2C-
 </div>
 
 <div data-reveal style="--d:120ms">
-<form class="form" id="quote-form" novalidate>
+<div class="form" data-no-gun>
 <p class="eyebrow">Quote request</p>
 <h2 class="display display--2" style="font-size:clamp(1.9rem,3.2vw,2.6rem);margin-bottom:28px">Tell us about the job</h2>
 
-<p class="form__status"></p>
-
-<div class="form__row">
-<div class="field">
-<label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
-<input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Jane Smith">
-<p class="err" id="e-name"></p>
-</div>
-<div class="field">
-<label for="f-company">Company</label>
-<input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Optional">
-<p class="err"></p>
-</div>
+<div class="form__embed">
+<script type="text/javascript" src="https://form.jotform.com/jsform/262398011058052"></script>
+<noscript>
+<p class="prose">Our quote form needs JavaScript to load. Email <a class="yel" href="mailto:{EMAIL}">{EMAIL}</a> or call <a class="yel" href="tel:{TEL}">{PHONE}</a> and we will take the details over the phone.</p>
+</noscript>
 </div>
 
-<div class="form__row">
-<div class="field">
-<label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
-<input id="f-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com">
-<p class="err"></p>
+<p class="form__note">Prefer to talk it through? Call <a class="yel" href="tel:{TEL}" style="text-decoration:none;font-weight:600">{PHONE}</a>.</p>
 </div>
-<div class="field">
-<label for="f-phone">Phone</label>
-<input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(256) 000-0000">
-<p class="err"></p>
-</div>
-</div>
-
-<div class="field">
-<label for="f-project">Project type <span class="req" aria-hidden="true">*</span></label>
-<select id="f-project" name="project" required>
-<option value="">Select one&#8230;</option>
-<option>Automotive</option>
-<option>Marine</option>
-<option>Industrial</option>
-<option>Other</option>
-</select>
-<p class="err"></p>
-</div>
-
-<div class="field">
-<label for="f-message">Project details <span class="req" aria-hidden="true">*</span></label>
-<textarea id="f-message" name="message" required placeholder="What is the part, roughly how big, what material, how many, and what finish are you after? Rough dimensions and quantity help us quote faster."></textarea>
-<p class="err"></p>
-</div>
-
-<button class="btn btn--wide" type="submit">Send Message</button>
-<p class="form__note">Fields marked <span class="yel">*</span> are required. Prefer to talk it through? Call <a class="yel" href="tel:{TEL}" style="text-decoration:none;font-weight:600">{PHONE}</a>.</p>
-</form>
 </div>
 
 </div>

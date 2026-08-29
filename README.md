@@ -46,7 +46,7 @@ robots.txt  sitemap.xml
 assets/css/styles.css       Design system + all page styles
 assets/css/fonts.css        @font-face declarations
 assets/fonts/*.woff2        Self-hosted webfonts
-assets/js/site.js           Nav, scroll reveal, form validation
+assets/js/site.js           Nav, scroll reveal, powder-gun cursor
 images/                     Photography + logo
 tools/build.py              Page generator
 tools/make-logo.py          Rebuilds the web logo from the master artwork
@@ -106,6 +106,37 @@ corners, outlined step numerals, and the service-radius diagram (plotted from
 real coordinates with Cullman at centre, rings at 25/50/75 miles).
 
 All text/background pairs meet WCAG AA; most meet AAA.
+
+---
+
+## Powder-gun cursor
+
+On desktop the pointer becomes a spray gun. Holding the left button sprays
+powder from the nozzle and lays yellow coating on the page, which burns off ten
+seconds later. Markup lives in `CURSOR` in `tools/build.py` (it sits on every
+page), styling in section 20 of `assets/css/styles.css`, behaviour in the
+`powderGun` block of `assets/js/site.js`.
+
+It stays out of the way where it would be a nuisance:
+
+* **Touch and coarse pointers** — never runs; it needs `(hover: hover) and
+  (pointer: fine)`.
+* **`prefers-reduced-motion`** — never runs.
+* **No JS, or before the first mouse move** — the native cursor is only hidden
+  once `.pg-on` lands on `<html>`, so a keyboard-first visitor keeps their
+  pointer.
+* **Fields and embeds** — over an `input`, `textarea`, `select` or anything
+  marked `[data-no-gun]`, the real cursor comes back and the gun stops. The map
+  and the Jotform card carry that attribute: a cross-origin frame swallows the
+  pointer entirely, so the gun is handed off before it reaches the frame edge
+  rather than freezing on the boundary.
+
+Coating sits at `z-index: 700` — above the page, below the header and the
+mobile dock, so it never covers navigation. Live particles are capped
+(`MAX_DUST`, `MAX_SPLOTCH`) so a long hold cannot flood the DOM.
+
+To take it off the site, drop `%(cursor)s` from the `footer()` template in
+`tools/build.py` and rebuild; the CSS and JS are inert without that markup.
 
 ---
 
