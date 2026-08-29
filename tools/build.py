@@ -142,13 +142,21 @@ def radius_svg():
 # --------------------------------------------------------------------------
 # shared chrome
 # --------------------------------------------------------------------------
+# images/powdertec-logo.png is generated from the client's master artwork by
+# tools/make-logo.py — re-run it (and then this build) if the artwork changes.
+LOGO      = "images/powdertec-logo.png"
+LOGO_W    = 560
+LOGO_H    = 226
+
+
 def brand(rel):
+    # The link carries the accessible name, so the image itself is decorative —
+    # alt="" keeps screen readers from announcing the company twice.
     return (
         '<a class="brand" href="%(rel)s" aria-label="%(brand)s — home">'
-        '<svg class="brand__bolt" viewBox="0 0 50 70" aria-hidden="true" focusable="false">'
-        '<path d="M31 0 L3 42 L21 42 L12 70 L47 30 L27 30 Z"/></svg>'
-        '<span class="brand__word">Powder<em>Tec</em></span></a>'
-    ) % {"rel": rel or "./", "brand": BRAND}
+        '<img class="brand__mark" src="%(rel)s%(logo)s" alt="" width="%(w)d" height="%(h)d" '
+        'decoding="async"></a>'
+    ) % {"rel": rel or "./", "brand": BRAND, "logo": LOGO, "w": LOGO_W, "h": LOGO_H}
 
 
 def head(rel, title, desc, page_path, extra_ld=""):
@@ -163,6 +171,7 @@ def head(rel, title, desc, page_path, extra_ld=""):
   "telephone": "%(tel)s",
   "email": "%(email)s",
   "image": "%(site)s/images/rims.jpg",
+  "logo": "%(site)s/%(logo)s",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
@@ -174,7 +183,7 @@ def head(rel, title, desc, page_path, extra_ld=""):
   },
   "areaServed": [%(areas)s]
 }""" % {
-        "site": SITE, "brand": BRAND, "tel": TEL, "email": EMAIL,
+        "site": SITE, "brand": BRAND, "tel": TEL, "email": EMAIL, "logo": LOGO,
         "street": STREET, "city": CITY, "state": STATE, "zip": ZIP,
         "areas": ", ".join('{"@type": "AdministrativeArea", "name": "%s"}' % a for a in
                            ["Cullman County, Alabama", "Morgan County, Alabama",

@@ -37,7 +37,7 @@
   --wrap: 1240px;
   --gut:  clamp(20px, 5vw, 56px);
   --sec:  clamp(76px, 9vw, 136px);
-  --hdr-h: 76px;
+  --hdr-h: 86px;
 
   /* motion */
   --ease: cubic-bezier(.22, .61, .36, 1);
@@ -249,31 +249,21 @@ h1, h2, h3, h4 { color: var(--white); font-weight: 700; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
   flex: none;
   text-decoration: none;
-  --brand-size: 1.85rem;
+  /* tied to the header so the mark rescales with it at every breakpoint */
+  --brand-size: calc(var(--hdr-h) * .78);
 }
-.brand__bolt {
+.brand__mark {
+  display: block;
   width: auto;
-  height: calc(var(--brand-size) * 1.12);
-  fill: var(--yellow);
-  transform: skewX(-9deg);
-  transition: fill .22s var(--ease), transform .3s var(--ease);
+  height: var(--brand-size);
+  transition: transform .3s var(--ease), filter .3s var(--ease);
 }
-.brand__word {
-  font-family: var(--display);
-  font-size: var(--brand-size);
-  font-weight: 800;
-  line-height: .9;
-  letter-spacing: .005em;
-  text-transform: uppercase;
-  color: var(--white);
-  transform: skewX(-9deg);
-  white-space: nowrap;
+.brand:hover .brand__mark {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 3px 14px rgba(245, 197, 0, .38));
 }
-.brand__word em { font-style: normal; color: var(--yellow); }
-.brand:hover .brand__bolt { fill: var(--yellow-hi); transform: skewX(-9deg) translateY(-2px); }
 
 .nav { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 34px); margin-left: auto; }
 .nav a {
@@ -386,7 +376,7 @@ h1, h2, h3, h4 { color: var(--white); font-weight: 700; }
   color: var(--yellow);
   margin-bottom: 20px;
 }
-.foot__brand .brand { --brand-size: 2.2rem; margin-bottom: 22px; }
+.foot__brand .brand { --brand-size: clamp(62px, 8vw, 84px); margin-bottom: 24px; }
 .foot address { font-style: normal; color: var(--fog); }
 .foot__links li + li { margin-top: 11px; }
 .foot__links a, .foot address a {
@@ -873,7 +863,7 @@ h1, h2, h3, h4 { color: var(--white); font-weight: 700; }
 }
 
 @media (max-width: 1024px) {
-  :root { --hdr-h: 68px; }
+  :root { --hdr-h: 74px; }
 
   .burger { display: block; }
   .hdr__cta { display: none; }
