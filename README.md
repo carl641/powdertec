@@ -117,6 +117,14 @@ seconds later. Markup lives in `CURSOR` in `tools/build.py` (it sits on every
 page), styling in section 20 of `assets/css/styles.css`, behaviour in the
 `powderGun` block of `assets/js/site.js`.
 
+**The off switch** — a sticky button in the bottom-right corner reads
+`SPRAY GUN · ON`; one click turns the gun off, hands back the normal cursor and
+wipes any coating still on the page. The choice is stored in `localStorage`
+under `pg-cursor` and read back on every page, so turning it off once holds
+across the whole site until the visitor turns it back on. The button only
+appears where the gun can actually run (`.pg-ready` on `<html>`), so touch and
+reduced-motion visitors never see a control for something they do not have.
+
 It stays out of the way where it would be a nuisance:
 
 * **Touch and coarse pointers** — never runs; it needs `(hover: hover) and
@@ -125,11 +133,12 @@ It stays out of the way where it would be a nuisance:
 * **No JS, or before the first mouse move** — the native cursor is only hidden
   once `.pg-on` lands on `<html>`, so a keyboard-first visitor keeps their
   pointer.
-* **Fields and embeds** — over an `input`, `textarea`, `select` or anything
-  marked `[data-no-gun]`, the real cursor comes back and the gun stops. The map
-  and the Jotform card carry that attribute: a cross-origin frame swallows the
-  pointer entirely, so the gun is handed off before it reaches the frame edge
-  rather than freezing on the boundary.
+* **Fields, embeds and the off switch** — over an `input`, `textarea`,
+  `select` or anything marked `[data-no-gun]`, the real cursor comes back and
+  the gun stops. The map, the Jotform card and the off switch itself carry that
+  attribute: a cross-origin frame swallows the pointer entirely, so the gun is
+  handed off before it reaches the frame edge rather than freezing on the
+  boundary.
 
 Coating sits at `z-index: 700` — above the page, below the header and the
 mobile dock, so it never covers navigation. Live particles are capped

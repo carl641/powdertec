@@ -103,6 +103,51 @@
     var onField = false, firing = false, dustTimer = null, coatTimer = null;
     var zones = [], remeasure = true;
 
+    /* ---- the off switch ---------------------------------------------------
+       .pg-ready reveals the button, so it only shows where the gun can
+       actually run. The choice is remembered per visitor and read back on
+       every page, which matters on a four-page site — turning it off once
+       has to stick. */
+    var STORE  = 'pg-cursor';
+    var toggle = document.getElementById('pg-toggle');
+    var state  = document.getElementById('pg-toggle-state');
+    var live   = true;
+
+    function remember(value) {
+      try { localStorage.setItem(STORE, value); } catch (err) { /* private mode */ }
+    }
+
+    function recall() {
+      try { return localStorage.getItem(STORE); } catch (err) { return null; }
+    }
+
+    function empty(layer) {
+      while (layer.firstChild) layer.removeChild(layer.firstChild);
+    }
+
+    function setLive(next, persist) {
+      live = next;
+      root.classList.toggle('pg-on', live && placed);
+      if (!live) {
+        stop();
+        root.classList.remove('pg-rest');
+        empty(spray);
+        empty(coat);          // wipe the coating already on the page
+      }
+      if (toggle) {
+        toggle.setAttribute('aria-pressed', String(live));
+        toggle.title = 'Turn the spray-gun cursor ' + (live ? 'off' : 'on');
+        if (state) state.textContent = live ? 'On' : 'Off';
+      }
+      if (persist) remember(live ? 'on' : 'off');
+    }
+
+    root.classList.add('pg-ready');
+    if (toggle) {
+      toggle.addEventListener('click', function () { setLive(!live, true); });
+    }
+    setLive(recall() !== 'off', false);
+
     /* ---- where the gun is not welcome ---- */
     function measure() {
       remeasure = false;
@@ -138,8 +183,9 @@
     }
 
     function move(e) {
-      x = e.clientX;
-      y = e.clientY;
+      x = e.clientX;                    // tracked even when off, so switching
+      y = e.clientY;                    // back on puts the gun under the hand
+      if (!live) return;
       if (!placed) { placed = true; root.classList.add('pg-on'); }
       settle();
       // keep drawing even while hidden, so it never reappears a frame behind
@@ -147,6 +193,7 @@
     }
 
     function field(e) {
+      if (!live) return;
       onField = !!(e.target && e.target.closest && e.target.closest(FIELDS));
       settle();
     }
@@ -217,7 +264,7 @@
 
     /* ---- trigger ---- */
     function start(e) {
-      if (e.button !== 0 || firing || !placed) return;
+      if (e.button !== 0 || firing || !placed || !live) return;
       if (root.classList.contains('pg-rest')) return;
 
       firing = true;
