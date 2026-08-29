@@ -796,46 +796,9 @@ h1, h2, h3, h4 { color: var(--white); font-weight: 700; }
 
 /* form */
 .form { background: var(--panel); padding: clamp(28px, 3.4vw, 46px); clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%); border-top: 3px solid var(--yellow); }
-.field { margin-bottom: 22px; }
-.field label {
-  display: block;
-  font-size: var(--fs-xs); font-weight: 700; letter-spacing: .18em;
-  text-transform: uppercase; color: var(--fog); margin-bottom: 9px;
-}
-.field label .req { color: var(--yellow); }
-.field input, .field select, .field textarea {
-  width: 100%;
-  padding: 14px 16px;
-  background: var(--ink);
-  border: 1px solid var(--line);
-  color: var(--white);
-  font-size: 1rem;
-  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
-  border-radius: 0;
-  appearance: none;
-}
-.field textarea { min-height: 150px; resize: vertical; }
-.field select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F5C500' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-  background-size: 12px;
-  padding-right: 44px;
-  cursor: pointer;
-}
-.field input::placeholder, .field textarea::placeholder { color: #5C5C5C; }
-.field input:focus, .field select:focus, .field textarea:focus {
-  outline: none;
-  border-color: var(--yellow);
-  box-shadow: 0 0 0 1px var(--yellow);
-}
-.field .err { display: none; margin-top: 8px; font-size: var(--fs-sm); font-weight: 600; color: var(--yellow); }
-.field.is-bad input, .field.is-bad select, .field.is-bad textarea { border-color: var(--yellow); }
-.field.is-bad .err { display: block; }
-.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
+.form__embed { min-height: 320px; }
+.form__embed iframe { display: block; width: 100% !important; min-width: 100% !important; border: 0; }
 .form__note { margin-top: 18px; font-size: var(--fs-sm); color: var(--fog-dim); }
-.form__status { display: none; margin-bottom: 22px; padding: 16px 18px; border-left: 3px solid var(--yellow); background: var(--ink); color: var(--white); font-size: var(--fs-sm); }
-.form__status.is-on { display: block; }
 
 /* ---------- 19. Reveal ---------- */
 .js [data-reveal] {
@@ -933,7 +896,6 @@ h1, h2, h3, h4 { color: var(--white); font-weight: 700; }
   .cred:first-child { border-top: 0; }
   .spec { grid-template-columns: 1fr; gap: 10px; }
   .grid--4 { grid-template-columns: 1fr; }
-  .form__row { grid-template-columns: 1fr; }
   .hero__acts { flex-direction: column; align-items: stretch; }
   .hero__acts .btn { width: 100%; }
   .foot__bar { flex-direction: column; align-items: flex-start; }

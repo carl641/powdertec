@@ -1,15 +1,10 @@
 /* PowderTec — site behaviour
    -------------------------------------------------------------------------
-   Set FORM_ENDPOINT to a POST URL (Formspree, Netlify Forms, your own handler)
-   to have the contact form submit server-side. While it is empty the form
-   validates in the browser and then hands off to the visitor's mail client so
-   nothing is lost.
+   The contact page uses a hosted Jotform embed, so no form handling lives
+   here.
    ------------------------------------------------------------------------- */
 (function () {
   'use strict';
-
-  var FORM_ENDPOINT = '';
-  var FORM_TO = 'info@alabamapowdercoating.com';
 
   /* ---- sticky header state ---- */
   var hdr = document.getElementById('hdr');
@@ -74,106 +69,4 @@
   var yr = document.querySelectorAll('[data-year]');
   Array.prototype.forEach.call(yr, function (el) { el.textContent = new Date().getFullYear(); });
 
-  /* ---- contact form ---- */
-  var form = document.getElementById('quote-form');
-  if (!form) return;
-
-  var status = form.querySelector('.form__status');
-
-  var say = function (msg) {
-    if (!status) return;
-    status.textContent = msg;
-    status.classList.add('is-on');
-    status.setAttribute('role', 'status');
-  };
-
-  var markField = function (input, bad, msg) {
-    var field = input.closest('.field');
-    if (!field) return;
-    field.classList.toggle('is-bad', bad);
-    input.setAttribute('aria-invalid', bad ? 'true' : 'false');
-    var err = field.querySelector('.err');
-    if (err && msg) err.textContent = msg;
-  };
-
-  var validate = function (input) {
-    var val = (input.value || '').trim();
-    var required = input.hasAttribute('required');
-
-    if (required && !val) {
-      markField(input, true, input.dataset.msgRequired || 'This field is required.');
-      return false;
-    }
-    if (input.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val)) {
-      markField(input, true, 'Enter a valid email address.');
-      return false;
-    }
-    if (input.type === 'tel' && val && val.replace(/\D/g, '').length < 10) {
-      markField(input, true, 'Enter a 10-digit phone number.');
-      return false;
-    }
-    markField(input, false);
-    return true;
-  };
-
-  var inputs = form.querySelectorAll('input, select, textarea');
-  Array.prototype.forEach.call(inputs, function (input) {
-    input.addEventListener('blur', function () { validate(input); });
-    input.addEventListener('input', function () {
-      if (input.closest('.field') && input.closest('.field').classList.contains('is-bad')) validate(input);
-    });
-  });
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    var firstBad = null;
-    Array.prototype.forEach.call(inputs, function (input) {
-      if (!validate(input) && !firstBad) firstBad = input;
-    });
-
-    if (firstBad) {
-      say('Please correct the highlighted fields and try again.');
-      firstBad.focus();
-      return;
-    }
-
-    var data = new FormData(form);
-
-    if (FORM_ENDPOINT) {
-      var btn = form.querySelector('button[type="submit"]');
-      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-      fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
-        .then(function (r) {
-          if (!r.ok) throw new Error('bad response');
-          form.reset();
-          say('Thank you — your request is in. We will get back to you shortly. Need an answer today? Call (256) 287-3031.');
-        })
-        .catch(function () {
-          say('Something went wrong sending the form. Please call (256) 287-3031 or email ' + FORM_TO + '.');
-        })
-        .then(function () {
-          if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; }
-        });
-      return;
-    }
-
-    // No endpoint configured — hand off to the visitor's mail client.
-    var lines = [
-      'Name: '         + (data.get('name')    || ''),
-      'Company: '      + (data.get('company') || '—'),
-      'Email: '        + (data.get('email')   || ''),
-      'Phone: '        + (data.get('phone')   || '—'),
-      'Project type: ' + (data.get('project') || ''),
-      '',
-      'Project details:',
-      (data.get('message') || '')
-    ];
-    var href = 'mailto:' + FORM_TO +
-      '?subject=' + encodeURIComponent('Quote request — ' + (data.get('project') || 'Project') + ' — ' + (data.get('name') || '')) +
-      '&body=' + encodeURIComponent(lines.join('\n'));
-
-    say('Opening your email app with the request ready to send. If nothing happens, email ' + FORM_TO + ' or call (256) 287-3031.');
-    window.location.href = href;
-  });
 })();
