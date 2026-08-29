@@ -816,7 +816,108 @@ h1, h2, h3, h4 { color: var(--white); font-weight: 700; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 
-/* ---------- 20. Responsive ---------- */
+/* ---------- 20. Powder-gun cursor ---------- */
+/* Desktop-only garnish. site.js adds .pg-on to <html> after the first mouse
+   move, so touch, keyboard-first and no-JS visitors never lose their pointer.
+   .pg-rest hands the native cursor back over fields, iframes and anything
+   marked [data-no-gun] — those need a real caret more than a gimmick. */
+html.pg-on:not(.pg-rest),
+html.pg-on:not(.pg-rest) * { cursor: none; }
+
+/* holding the trigger is a drag, which would otherwise paint the page in
+   selection highlight — selection comes back the moment it is released */
+html.pg-firing, html.pg-firing * { -webkit-user-select: none; user-select: none; }
+
+.pg-gun {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100px; height: 70px;
+  z-index: 1100;
+  display: none;
+  pointer-events: none;
+  will-change: transform;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .55));
+}
+.pg-on .pg-gun { display: block; }
+.pg-on.pg-rest .pg-gun { display: none; }
+
+.pg-gun .pg-y    { fill: var(--yellow); stroke: #0B0B0B; stroke-width: 5; }
+.pg-gun .pg-k    { fill: #303030; }
+.pg-gun .pg-line { fill: none; stroke: #0B0B0B; stroke-width: 6; stroke-linecap: round; }
+
+/* the gun kicks back a touch while the trigger is held */
+.pg-gun__rig { transform-origin: 168px 50px; }
+.pg-on.pg-firing .pg-gun__rig { animation: pgRecoil .09s linear infinite alternate; }
+@keyframes pgRecoil {
+  from { transform: translateX(0)   rotate(0deg); }
+  to   { transform: translateX(3px) rotate(-.7deg); }
+}
+
+/* two layers: coating settles behind the chrome, flying powder in front */
+.pg-coat, .pg-spray {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.pg-coat  { z-index: 700; }
+.pg-spray { z-index: 1000; }
+
+/* flying powder */
+.pg-dust {
+  position: absolute;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--yellow-hi);
+  box-shadow: 0 0 4px rgba(255, 213, 0, .8), 0 0 8px rgba(255, 213, 0, .4);
+  animation: pgDust .55s ease-out forwards;
+}
+@keyframes pgDust {
+  from { opacity: 1; transform: translate(0, 0) scale(1); }
+  to   { opacity: 0; transform: translate(var(--mx), var(--my)) scale(.15); }
+}
+
+/* coating that lands on the page — clears itself after ten seconds */
+.pg-splotch {
+  position: absolute;
+  border-radius: 48% 52% 46% 54% / 55% 42% 58% 45%;
+  background: var(--yellow);
+  box-shadow: 0 0 3px rgba(245, 197, 0, .4);
+  opacity: .88;
+  animation: pgCoat 10s linear forwards;
+}
+@keyframes pgCoat {
+  0%   { opacity: 0;   transform: rotate(var(--rot)) scale(.25); }
+  4%   { opacity: .88; transform: rotate(var(--rot)) scale(1); }
+  90%  { opacity: .88; transform: rotate(var(--rot)) scale(1); }
+  100% { opacity: 0;   transform: rotate(var(--rot)) scale(.9); }
+}
+
+.pg-fleck {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--yellow);
+  opacity: .7;
+  animation: pgFleck 10s linear forwards;
+}
+@keyframes pgFleck {
+  0%   { opacity: 0; }
+  4%   { opacity: .7; }
+  90%  { opacity: .7; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-gun, .pg-coat, .pg-spray { display: none !important; }
+  html.pg-on, html.pg-on * { cursor: auto; }
+}
+
+@media print {
+  .pg-gun, .pg-coat, .pg-spray { display: none !important; }
+}
+
+
+/* ---------- 21. Responsive ---------- */
 @media (max-width: 1160px) {
   .creds__grid:not(.creds__grid--3) { grid-template-columns: repeat(2, 1fr); }
   .creds__grid:not(.creds__grid--3) .cred:nth-child(odd) { border-left: 0; }
