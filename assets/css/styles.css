@@ -907,13 +907,61 @@ html.pg-firing, html.pg-firing * { -webkit-user-select: none; user-select: none;
   100% { opacity: 0; }
 }
 
+/* the off switch — shown only where the gun can actually run (.pg-ready),
+   so it never appears on touch, under reduced motion, or without JS */
+.pg-toggle {
+  display: none;
+  position: fixed;
+  right: clamp(14px, 2vw, 26px);
+  bottom: clamp(14px, 2vw, 26px);
+  z-index: 1150;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  background: rgba(6, 6, 6, .94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid var(--yellow);
+  color: var(--yellow);
+  font-family: var(--body);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 11px, 100% 100%, 11px 100%, 0 calc(100% - 11px));
+  transition: background .22s var(--ease), color .22s var(--ease),
+              border-color .22s var(--ease), transform .22s var(--ease);
+}
+html.pg-ready .pg-toggle { display: flex; }
+.pg-toggle:hover { transform: translateY(-2px); }
+.pg-toggle:active { transform: translateY(0); }
+
+.pg-toggle__gun { width: 28px; height: 18px; flex: none; }
+.pg-toggle .pg-y    { fill: currentColor; stroke: none; }
+.pg-toggle .pg-k    { fill: currentColor; opacity: .5; }
+.pg-toggle .pg-line { fill: none; stroke: currentColor; stroke-width: 9; stroke-linecap: round; }
+
+.pg-toggle__state {
+  padding: 3px 8px;
+  background: var(--yellow);
+  color: var(--ink);
+  letter-spacing: .1em;
+}
+
+/* switched off: the control stays plainly visible, just no longer live */
+.pg-toggle[aria-pressed="false"] { border-color: var(--line); color: var(--fog-dim); }
+.pg-toggle[aria-pressed="false"]:hover { border-color: var(--yellow); color: var(--yellow); }
+.pg-toggle[aria-pressed="false"] .pg-toggle__state { background: var(--fog-dim); }
+.pg-toggle[aria-pressed="false"]:hover .pg-toggle__state { background: var(--yellow); }
+
 @media (prefers-reduced-motion: reduce) {
-  .pg-gun, .pg-coat, .pg-spray { display: none !important; }
+  .pg-gun, .pg-coat, .pg-spray, .pg-toggle { display: none !important; }
   html.pg-on, html.pg-on * { cursor: auto; }
 }
 
 @media print {
-  .pg-gun, .pg-coat, .pg-spray { display: none !important; }
+  .pg-gun, .pg-coat, .pg-spray, .pg-toggle { display: none !important; }
 }
 
 
@@ -965,6 +1013,8 @@ html.pg-firing, html.pg-firing * { -webkit-user-select: none; user-select: none;
 
   .dock { display: block; }
   body { padding-bottom: 54px; }
+  /* a narrow desktop window gets the dock too — sit the switch above it */
+  .pg-toggle { bottom: 68px; }
 
   .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; }

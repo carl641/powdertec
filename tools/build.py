@@ -276,20 +276,28 @@ def band(heading, btn_label, btn_href, rel):
 # Inert markup: assets/js/site.js only switches it on for fine-pointer
 # devices, so touch users and no-JS visitors keep the native cursor.
 # --------------------------------------------------------------------------
-CURSOR = """<div class="pg-coat" id="pg-coat" aria-hidden="true"></div>
-<div class="pg-spray" id="pg-spray" aria-hidden="true"></div>
-<svg class="pg-gun" id="pg-gun" viewBox="0 0 190 120" aria-hidden="true" focusable="false">
-<g class="pg-gun__rig">
-<rect class="pg-y" x="5" y="44" width="62" height="13" rx="4"/>
+GUN_PARTS = """<rect class="pg-y" x="5" y="44" width="62" height="13" rx="4"/>
 <rect class="pg-k" x="0" y="46" width="13" height="9" rx="2"/>
 <path class="pg-y" d="M65 38 L151 38 Q168 38 168 48 L168 54 Q168 62 151 62 L73 62 Q60 62 60 54 L60 46 Q60 38 65 38 Z"/>
 <rect class="pg-k" x="148" y="42" width="20" height="16" rx="4"/>
 <path class="pg-y" d="M101 61 L132 61 L139 108 L111 108 Z"/>
 <path class="pg-k" d="M108 70 L127 70 L133 101 L115 101 Z"/>
-<path class="pg-line" d="M82 60 Q90 76 103 64"/>
+<path class="pg-line" d="M82 60 Q90 76 103 64"/>"""
+
+CURSOR = """<div class="pg-coat" id="pg-coat" aria-hidden="true"></div>
+<div class="pg-spray" id="pg-spray" aria-hidden="true"></div>
+<svg class="pg-gun" id="pg-gun" viewBox="0 0 190 120" aria-hidden="true" focusable="false">
+<g class="pg-gun__rig">
+%(parts)s
 </g>
 </svg>
-"""
+<button class="pg-toggle" id="pg-toggle" type="button" data-no-gun aria-pressed="true"
+title="Turn the spray-gun cursor off">
+<svg class="pg-toggle__gun" viewBox="0 0 190 120" aria-hidden="true" focusable="false">%(parts)s</svg>
+<span>Spray Gun</span>
+<span class="pg-toggle__state" id="pg-toggle-state">On</span>
+</button>
+""" % {"parts": GUN_PARTS}
 
 
 def footer(rel):
