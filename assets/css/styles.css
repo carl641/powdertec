@@ -106,11 +106,10 @@ h1, h2, h3, h4 { color: var(--white); font-weight: 700; }
 .display--1    { font-size: var(--fs-h1); }
 .display--2    { font-size: var(--fs-h2); }
 
-/* the deliberate counterpoint: lowercase, wide, light */
+/* the deliberate counterpoint: sentence case, wide, light */
 .lower {
   font-family: var(--body);
   font-weight: 500;
-  text-transform: lowercase;
   letter-spacing: -0.01em;
   line-height: 1.18;
   font-size: clamp(1.6rem, 3.6vw, 2.65rem);

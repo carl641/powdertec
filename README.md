@@ -85,7 +85,7 @@ copy. Defined as CSS custom properties at the top of `assets/css/styles.css`.
 | `--fog` | `#C6C6C6` | Body copy |
 
 **Type** — Big Shoulders Display (condensed, uppercase) for headlines and
-numerals; Barlow for body, UI and the deliberately lowercase counter-headings.
+numerals; Barlow for body, UI and the sentence-case counter-headings.
 Both self-hosted, latin subset, ~136 KB total.
 
 **Logo** — `images/PowderTec-Logo.png` is the client's master artwork and is kept

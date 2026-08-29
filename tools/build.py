@@ -382,7 +382,7 @@ def build_home():
 <div class="hero__inner wrap wrap--wide">
 <p class="eyebrow">Powder coating &amp; metal finishing &#183; Cullman, Alabama</p>
 <h1 class="display display--hero">North Alabama&#8217;s Premier <em>Powder Coating Team</em></h1>
-<p class="lower hero__sub">serving automotive, marine, and industrial clients across north alabama.</p>
+<p class="lower hero__sub">Serving automotive, marine, and industrial clients across North Alabama.</p>
 <div class="hero__acts">
 <a class="btn" href="contact/">Get a Quote {ARROW}</a>
 <a class="btn btn--ghost" href="services/">View Services</a>
@@ -412,7 +412,7 @@ def build_home():
 </div>
 <div data-reveal style="--d:120ms">
 <p class="eyebrow">Who we are</p>
-<h2 class="lower">built for the toughest jobs in north&nbsp;alabama.</h2>
+<h2 class="lower">Built for the toughest jobs in North&nbsp;Alabama.</h2>
 <div class="prose" style="margin-top:26px">
 <p>PowderTec is a powder coating and metal finishing operation in Cullman, Alabama, built on a simple idea: <strong>finishing should be an asset to your operation, not a bottleneck in it.</strong> We run one of the most advanced facilities in the state &#8212; including the largest powder coating oven in Alabama &#8212; so the parts other shops have to turn away come here instead.</p>
 <p>Every job moves through the same disciplined sequence: thorough pretreatment, precise electrostatic application on Gema equipment, and a controlled cure. Where a part needs more than a finish, our AWS-certified welders and fabricators repair, modify or build it from CAD before it ever reaches the booth.</p>
@@ -429,7 +429,7 @@ def build_home():
 <div class="wrap wrap--wide">
 <div class="head">
 <p class="eyebrow">Who we serve</p>
-<h2 class="lower">three industries. one standard of excellence.</h2>
+<h2 class="lower">Three industries. One standard of excellence.</h2>
 </div>
 <div class="grid grid--3" data-stagger>
 
@@ -472,7 +472,7 @@ def build_home():
 <div class="wrap wrap--wide">
 <div class="head">
 <p class="eyebrow">How the work moves</p>
-<h2 class="lower">three steps. no shortcuts.</h2>
+<h2 class="lower">Three steps. No shortcuts.</h2>
 </div>
 <div class="steps" data-stagger>
 <div class="step" data-reveal>
@@ -503,7 +503,7 @@ def build_home():
 </div>
 <div data-reveal style="--d:120ms">
 <p class="eyebrow">Where we work</p>
-<h2 class="lower">proudly serving north alabama.</h2>
+<h2 class="lower">Proudly serving North Alabama.</h2>
 <div class="prose" style="margin-top:26px">
 <p>From our facility on Alabama Highway 69 South in Cullman, we sit inside an easy haul of nearly every industrial corridor, automotive shop and lake community in the northern half of the state &#8212; Huntsville and Decatur to the north, Birmingham to the south, the Shoals to the west, Lake Guntersville to the east.</p>
 <p>That central position matters more than it sounds. Shorter hauls mean less handling on large or heavy parts, quicker turnaround and a shop you can actually drive to when a job needs a conversation.</p>
@@ -557,7 +557,7 @@ def build_services():
 <div class="wrap wrap--wide">
 <div class="head">
 <p class="eyebrow">Core capabilities</p>
-<h2 class="lower">everything the part needs, in one building.</h2>
+<h2 class="lower">Everything the part needs, in one building.</h2>
 </div>
 <div class="grid grid--3" data-stagger>
 
@@ -592,7 +592,7 @@ def build_services():
 </div>
 <div data-reveal style="--d:120ms">
 <p class="eyebrow">Automotive</p>
-<h2 class="lower">automotive finishing that goes the distance.</h2>
+<h2 class="lower">Automotive finishing that goes the distance.</h2>
 <div class="prose" style="margin-top:24px">
 <p>Road salt, brake heat, stone chip and UV will find every weak spot in a finish. Automotive work gets pretreatment matched to the substrate and a coating system chosen for the service conditions the part will actually see &#8212; not just the colour on the sample chip.</p>
 <p>We colour-match to your specification, handle multi-stage finishes, and coat everything from a single restoration bracket to a complete chassis. Bare steel, cast aluminium and non-ferrous castings are all routine here.</p>
@@ -618,7 +618,7 @@ def build_services():
 </div>
 <div data-reveal style="--d:120ms">
 <p class="eyebrow">Marine</p>
-<h2 class="lower">built to withstand the water.</h2>
+<h2 class="lower">Built to withstand the water.</h2>
 <div class="prose" style="margin-top:24px">
 <p>Marine hardware lives in the worst environment we coat for: constant moisture, trailer immersion, dissimilar metals bolted together and, on the coast, salt. Pretreatment and coating selection do the heavy lifting long before anyone notices the colour.</p>
 <p>With Lake Guntersville, Smith Lake and the Tennessee River on our doorstep, marine work is a regular part of the schedule &#8212; from one-off repairs for a boat owner to production runs of boarding steps, rails and trailer components for builders and dealers.</p>
@@ -644,7 +644,7 @@ def build_services():
 </div>
 <div data-reveal style="--d:120ms">
 <p class="eyebrow">Industrial</p>
-<h2 class="lower">heavy-duty coating for demanding environments.</h2>
+<h2 class="lower">Heavy-duty coating for demanding environments.</h2>
 <div class="prose" style="margin-top:24px">
 <p>Industrial finishing is a volume and consistency problem as much as a coating one. Batch after batch has to come out the same, hit the schedule, and arrive packed so it does not need rework on the receiving dock.</p>
 <p>We coat for fabricators, extruders, manufacturers, fencing contractors and architectural shops throughout North Alabama, and we are set up for the oversized work &#8212; long sections, tall frames and heavy weldments &#8212; that smaller ovens cannot take.</p>
@@ -669,7 +669,7 @@ def build_services():
 <div class="split" style="align-items:start">
 <div data-reveal>
 <p class="eyebrow">Equipment &amp; facility</p>
-<h2 class="lower">scale is a quality decision.</h2>
+<h2 class="lower">Scale is a quality decision.</h2>
 <div class="prose" style="margin-top:24px">
 <p>Oven size is not bragging rights &#8212; it is the difference between a part that cures in one continuous pass and one that gets sectioned, rehung and re-run. Alabama&#8217;s largest powder coating oven lets us take long, tall and heavy work in a single load, which keeps film build and gloss consistent from one end of a part to the other.</p>
 <p>Pair that with Gema application systems, certified welders and in-house CAD, and most jobs never have to leave the building. Fewer hand-offs means fewer things to schedule around, and a shorter, more predictable turnaround for you.</p>
@@ -764,7 +764,7 @@ def build_locations():
 </div>
 <div data-reveal style="--d:120ms">
 <p class="eyebrow">Service area</p>
-<h2 class="lower">cullman is the middle of north alabama&#8217;s map.</h2>
+<h2 class="lower">Cullman is the middle of North Alabama&#8217;s map.</h2>
 <div class="prose" style="margin-top:26px">
 <p>PowderTec operates from {STREET} in {CITY}, {STATE} &#8212; roughly forty miles from Decatur, Huntsville, Athens and Guntersville, and about the same again to Birmingham and the Shoals. Nearly every industrial corridor, automotive shop and lake community in the northern half of the state sits inside a comfortable haul.</p>
 <p>We take automotive, marine and industrial work from across that footprint. Large or awkward loads are worth a phone call before you hitch up &#8212; we will tell you straight away whether it fits the oven and what a realistic turnaround looks like.</p>
@@ -780,7 +780,7 @@ def build_locations():
 <div class="wrap wrap--wide">
 <div class="head">
 <p class="eyebrow">Counties &amp; regions</p>
-<h2 class="lower">where our work ends up.</h2>
+<h2 class="lower">Where our work ends up.</h2>
 </div>
 <div class="grid grid--3" data-stagger>{cards}
 </div>
@@ -792,7 +792,7 @@ def build_locations():
 <div class="wrap wrap--wide">
 <div class="head">
 <p class="eyebrow">Why it matters</p>
-<h2 class="lower">a shorter haul is a better finish.</h2>
+<h2 class="lower">A shorter haul is a better finish.</h2>
 </div>
 <div class="grid grid--3" data-stagger>
 
@@ -863,7 +863,7 @@ def build_contact():
 
 <div data-reveal>
 <p class="eyebrow">Direct line</p>
-<h2 class="lower" style="margin-bottom:34px">talk to someone who runs the line.</h2>
+<h2 class="lower" style="margin-bottom:34px">Talk to someone who runs the line.</h2>
 
 <dl class="info">
 <dt>Phone</dt>
@@ -953,7 +953,7 @@ src="https://www.openstreetmap.org/export/embed.html?bbox=-86.9400%2C34.0900%2C-
 <section class="section--tight" style="border-top:1px solid var(--line-soft);background:var(--panel)">
 <div class="wrap wrap--wide" style="text-align:center">
 <p class="eyebrow eyebrow--center">Service area</p>
-<p class="lower" style="max-width:34ch;margin-inline:auto">serving cullman, morgan, madison, limestone, jefferson, the shoals and the guntersville lakes region of north alabama.</p>
+<p class="lower" style="max-width:34ch;margin-inline:auto">Serving Cullman, Morgan, Madison, Limestone, Jefferson, the Shoals and the Guntersville Lakes region of North Alabama.</p>
 <ul class="tags" style="justify-content:center;margin-top:28px">
 {"".join(f'<li><a class="tag" href="../locations-served/">{a}</a></li>' for a in AREAS)}
 </ul>
