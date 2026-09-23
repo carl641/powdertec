@@ -427,7 +427,7 @@ def build_home():
 <div class="creds__grid">
 <div class="cred">{icon('oven', 'x')}<p>Alabama&#8217;s Largest Oven<small>Large-format capacity for the parts most shops have to turn away.</small></p></div>
 <div class="cred">{icon('shield', 'x')}<p>AWS Certified Welders<small>Certified welding and fabrication handled in-house, not subbed out.</small></p></div>
-<div class="cred">{icon('target', 'x')}<p>Gema Application Systems<small>Even film build, repeatable colour and clean powder transfer.</small></p></div>
+<div class="cred">{icon('target', 'x')}<p>Gema Application Systems<small>Even film build, repeatable color and clean powder transfer.</small></p></div>
 <div class="cred">{icon('compass', 'x')}<p>In-House CAD Design<small>Designed, fixtured, fabricated and finished under one roof.</small></p></div>
 </div>
 </div>
@@ -468,7 +468,7 @@ def build_home():
 <div class="vcard__body">
 {icon('wheel')}
 <h3>Automotive</h3>
-<p>After-market parts, chassis, wheels and restoration work finished to shrug off heat, road salt and stone chip &#8212; matched to just about any colour you can name.</p>
+<p>After-market parts, chassis, wheels and restoration work finished to shrug off heat, road salt and stone chip &#8212; matched to just about any color you can name.</p>
 <a class="tlink" href="services/#automotive">Explore Services {ARROW}</a>
 </div>
 </article>
@@ -478,7 +478,7 @@ def build_home():
 <div class="vcard__body">
 {icon('anchor')}
 <h3>Marine</h3>
-<p>Corrosion-resistant, water-tough finishes for boat hardware, trailers, boarding steps, rails and dock fixtures built for a life spent wet.</p>
+<p>Corrosion-resistant, water-tough finishes for docks, trailers, boarding steps, rails and boat hardware built for a life spent wet.</p>
 <a class="tlink" href="services/#marine">Explore Services {ARROW}</a>
 </div>
 </article>
@@ -508,7 +508,7 @@ def build_home():
 <div class="step" data-reveal>
 <p class="step__num">01</p>
 <h3>Pretreat &amp; Prep</h3>
-<p>Cleaning, media blasting and chemical pretreatment that strip contamination and give the powder something real to bond to. Skip this step and nothing after it matters.</p>
+<p>Thorough cleaning and chemical pretreatment that strip contamination and give the powder something real to bond to. Skip this step and nothing after it matters.</p>
 </div>
 <div class="step" data-reveal>
 <p class="step__num">02</p>
@@ -594,13 +594,13 @@ def build_services():
 <article class="card" data-reveal>
 {icon('oven')}
 <h3>Powder Coating</h3>
-<p>Durable, long-lasting, custom colour-matched finishes applied with state-of-the-art Gema equipment. The largest powder coating oven in Alabama means large-format work cures in one piece rather than being sectioned, rehung and re-run &#8212; which is where inconsistency creeps in on big parts.</p>
+<p>Durable, long-lasting, custom color-matched finishes applied with state-of-the-art Gema equipment. The largest powder coating oven in Alabama means large-format work cures in one piece rather than being sectioned, rehung and re-run &#8212; which is where inconsistency creeps in on big parts.</p>
 </article>
 
 <article class="card" data-reveal>
 {icon('target')}
 <h3>Pretreat &amp; Preparation</h3>
-<p>A finish is only as good as what sits underneath it. We clean, media blast and chemically pretreat every part to strip oil, oxide, mill scale and old coating, then key the surface for maximum adhesion and long-term corrosion resistance.</p>
+<p>A finish is only as good as what sits underneath it. We clean and chemically pretreat every part to strip oil, grease and contamination, then prepare the surface for maximum adhesion and long-term corrosion resistance.</p>
 </article>
 
 <article class="card" data-reveal>
@@ -624,15 +624,15 @@ def build_services():
 <p class="eyebrow">Automotive</p>
 <h2 class="lower">Automotive finishing that goes the distance.</h2>
 <div class="prose" style="margin-top:24px">
-<p>Road salt, brake heat, stone chip and UV will find every weak spot in a finish. Automotive work gets pretreatment matched to the substrate and a coating system chosen for the service conditions the part will actually see &#8212; not just the colour on the sample chip.</p>
-<p>We colour-match to your specification, handle multi-stage finishes, and coat everything from a single restoration bracket to a complete chassis. Bare steel, cast aluminium and non-ferrous castings are all routine here.</p>
+<p>Road salt, brake heat, stone chip and UV will find every weak spot in a finish. Automotive work gets pretreatment matched to the substrate and a coating system chosen for the service conditions the part will actually see &#8212; not just the color on the sample chip.</p>
+<p>We color-match to your specification, handle multi-stage finishes, and coat everything from a single restoration bracket to a complete chassis. Bare steel, cast aluminum and non-ferrous castings are all routine here.</p>
 </div>
 <ul class="ticks">
 <li>Wheels &amp; rims, including beadlock and multi-piece assemblies</li>
 <li>Frames, chassis, roll cages and suspension components</li>
 <li>Brake calipers, brackets and engine-bay hardware</li>
 <li>Trim, bumpers and after-market accessories</li>
-<li>Classic and restoration parts stripped back to bare metal</li>
+<li>Classic and restoration parts</li>
 </ul>
 <a class="tlink" href="../contact/" style="margin-top:30px">Quote an Automotive Job {ARROW}</a>
 </div>
@@ -650,13 +650,14 @@ def build_services():
 <p class="eyebrow">Marine</p>
 <h2 class="lower">Built to withstand the water.</h2>
 <div class="prose" style="margin-top:24px">
-<p>Marine hardware lives in the worst environment we coat for: constant moisture, trailer immersion, dissimilar metals bolted together and, on the coast, salt. Pretreatment and coating selection do the heavy lifting long before anyone notices the colour.</p>
+<p>Marine products live in the worst environment we coat for: constant moisture, trailer immersion and dissimilar metals bolted together. Pretreatment and coating selection do the heavy lifting long before anyone notices the color.</p>
 <p>With Lake Guntersville, Smith Lake and the Tennessee River on our doorstep, marine work is a regular part of the schedule &#8212; from one-off repairs for a boat owner to production runs of boarding steps, rails and trailer components for builders and dealers.</p>
 </div>
 <ul class="ticks">
 <li>Boat trailers, frames, bunks and trailer components</li>
 <li>Boarding steps, ladders, rails and grab handles</li>
 <li>Cleats, fittings and deck hardware</li>
+<li>Boat docks and dock sections up to 33&nbsp;ft long</li>
 <li>Dock hardware, gangways and lift components</li>
 <li>Custom marine fabrication and repair work</li>
 </ul>
@@ -681,10 +682,10 @@ def build_services():
 </div>
 <ul class="ticks">
 <li>Fencing, gates, handrail and guardrail</li>
-<li>Architectural panels, louvres and structural trim</li>
+<li>Architectural panels, louvers and structural trim</li>
 <li>Appliance housings and enclosures</li>
 <li>Retail displays, racks and store fixtures</li>
-<li>Sheet metal fabrication and aluminium extrusions</li>
+<li>Sheet metal fabrication and aluminum extrusions</li>
 <li>Non-ferrous castings and machined components</li>
 </ul>
 <a class="tlink" href="../contact/" style="margin-top:30px">Quote an Industrial Job {ARROW}</a>
@@ -701,13 +702,14 @@ def build_services():
 <p class="eyebrow">Equipment &amp; facility</p>
 <h2 class="lower">Scale is a quality decision.</h2>
 <div class="prose" style="margin-top:24px">
-<p>Oven size is not bragging rights &#8212; it is the difference between a part that cures in one continuous pass and one that gets sectioned, rehung and re-run. Alabama&#8217;s largest powder coating oven lets us take long, tall and heavy work in a single load, which keeps film build and gloss consistent from one end of a part to the other.</p>
+<p>Oven size is not bragging rights &#8212; it is the difference between a part that cures in one continuous pass and one that gets sectioned, rehung and re-run. At 10&nbsp;ft &#215; 10&nbsp;ft &#215; 35&nbsp;ft, Alabama&#8217;s largest powder coating oven takes parts up to 33&nbsp;ft long, 9&nbsp;ft wide and 9&nbsp;ft tall in a single load, which keeps film build and gloss consistent from one end of a part to the other.</p>
 <p>Pair that with Gema application systems, certified welders and in-house CAD, and most jobs never have to leave the building. Fewer hand-offs means fewer things to schedule around, and a shorter, more predictable turnaround for you.</p>
 </div>
 </div>
 <div data-reveal style="--d:120ms">
 <div class="specs">
-<div class="spec"><p class="spec__k">Capacity</p><p class="spec__v">Largest Powder Coating Oven in Alabama</p></div>
+<div class="spec"><p class="spec__k">Oven Size</p><p class="spec__v">10 &#215; 10 &#215; 35&nbsp;ft</p></div>
+<div class="spec"><p class="spec__k">Capacity</p><p class="spec__v">Parts up to 9 &#215; 9 &#215; 33&nbsp;ft</p></div>
 <div class="spec"><p class="spec__k">Application</p><p class="spec__v">Gema Powder Coating Equipment</p></div>
 <div class="spec"><p class="spec__k">Fabrication</p><p class="spec__v">AWS Certified Welding Team</p></div>
 <div class="spec"><p class="spec__k">Design</p><p class="spec__v">In-House CAD Capability</p></div>
@@ -746,7 +748,7 @@ REGIONS = [
      "Industrial and automotive coating across the Shoals, including sheet metal, extrusions and "
      "fabricated assemblies for the region&#8217;s manufacturers."),
     ("Guntersville Lakes", "Guntersville &#183; Arab &#183; Albertville &#183; Scottsboro",
-     "Specialised marine hardware, boarding step and trailer coating for the Lake Guntersville "
+     "Specialized marine hardware, boarding step and trailer coating for the Lake Guntersville "
      "boating community, marinas and dealers."),
 ]
 
@@ -797,7 +799,7 @@ def build_locations():
 <h2 class="lower">Cullman is the middle of North Alabama&#8217;s map.</h2>
 <div class="prose" style="margin-top:26px">
 <p>PowderTec operates from {STREET} in {CITY}, {STATE} &#8212; roughly forty miles from Decatur, Huntsville, Athens and Guntersville, and about the same again to Birmingham and the Shoals. Nearly every industrial corridor, automotive shop and lake community in the northern half of the state sits inside a comfortable haul.</p>
-<p>We take automotive, marine and industrial work from across that footprint. Large or awkward loads are worth a phone call before you hitch up &#8212; we will tell you straight away whether it fits the oven and what a realistic turnaround looks like.</p>
+<p>We take automotive, marine and industrial work from across that footprint. Our oven takes parts up to 33&nbsp;ft long, 9&nbsp;ft wide and 9&nbsp;ft tall. Large or awkward loads are still worth a phone call before you hitch up &#8212; we will tell you straight away whether it fits and what a realistic turnaround looks like.</p>
 </div>
 <p style="margin-top:26px"><a class="btn" href="../contact/">Get a Quote {ARROW}</a></p>
 </div>
@@ -956,7 +958,7 @@ src="https://www.openstreetmap.org/export/embed.html?bbox=-86.9400%2C34.0900%2C-
 <div class="creds__grid creds__grid--3">
 <div class="cred">{icon('oven', 'x')}<p>Alabama&#8217;s Largest Oven<small>Large-format capacity most shops have to turn away.</small></p></div>
 <div class="cred">{icon('shield', 'x')}<p>AWS Certified Welders<small>Certified welding and fabrication handled in-house.</small></p></div>
-<div class="cred">{icon('target', 'x')}<p>Gema Application Systems<small>Even film build and repeatable, matched colour.</small></p></div>
+<div class="cred">{icon('target', 'x')}<p>Gema Application Systems<small>Even film build and repeatable, matched color.</small></p></div>
 </div>
 <p class="lede" style="text-align:center;padding-block:clamp(34px,4vw,52px);max-width:56ch;margin-inline:auto">Alabama&#8217;s most advanced powder coating facility &#8212; ready to exceed your expectations.</p>
 </div>
